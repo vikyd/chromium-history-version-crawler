@@ -5,6 +5,8 @@ on:
     - cron: '0 0,4,8,12,16,20 * * *'
     # - cron: '18 * * * *'
   push:
+    paths-ignore:
+      - 'json/version-position.json'
     branches:
       - master
 jobs:
@@ -27,6 +29,7 @@ jobs:
         run: |
           git config --local user.email "zwj_fhys@qq.com"
           git config --local user.name "vikyd"
+          git add json/version-position.json
           git commit -m "feat: update JSON file" json/version-position.json
       - name: Push changes
         uses: ad-m/github-push-action@master
