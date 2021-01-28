@@ -1,9 +1,9 @@
 name: 'Crawl and deploy'
 
-# schedule:
-# - cron: '0 0,4,8,12,16,20 * * *'
-# - cron: '18 * * * *'
 on:
+  schedule:
+    - cron: '0 0,4,8,12,16,20 * * *'
+    # - cron: '18 * * * *'
   push:
     branches:
       - master
