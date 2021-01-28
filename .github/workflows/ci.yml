@@ -42,12 +42,9 @@ jobs:
           user_name: 'vikyd'
           commit_msg: 'feat: update JSON data'
   frontend:
+    needs: crawler
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep for 10 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '10s'
       - name: Checkout
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
