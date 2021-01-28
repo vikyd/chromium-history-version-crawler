@@ -61,7 +61,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.ACCESS_TOKEN }}
         with:
           source-directory: 'dist'
-          destination-repository-name: 'vikyd/download-chromium-history-version'
+          destination-repository-name: 'download-chromium-history-version'
           destination-github-username: 'vikyd'
           user-email: 'zwj_fhys@qq.com'
           commit-message: 'feat: update JSON data'
