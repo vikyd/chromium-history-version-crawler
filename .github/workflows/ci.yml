@@ -1,4 +1,4 @@
-name: GitHub Actions Build and Deploy Demo
+name: 'Crawl and deploy'
 on:
   push:
     branches:
