@@ -61,7 +61,7 @@ async function doIt(os, posArr, pageToken) {
       posArr.push(posStr)
     })
 
-    console.log(url)
+    // console.log(url)
     console.log(`${os} success count: ${posArr.length}`)
     console.log('-------------------------------')
 
