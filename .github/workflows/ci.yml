@@ -1,7 +1,8 @@
 name: 'Crawl and deploy'
 on:
-  schedule:
-    - cron: '0 0,4,8,12,16,20 * * *'
+  # schedule:
+  # - cron: '0 0,4,8,12,16,20 * * *'
+  # - cron: '18 * * * *'
   push:
     branches:
       - master
@@ -21,6 +22,16 @@ jobs:
         run: node position-crawler.js
       - name: 'Generate Finial JSON'
         run: node ver-pos-os-generator.js
+      - name: Commit files
+        run: |
+          git config --local user.email "zwj_fhys@qq.com"
+          git config --local user.name "vikyd"
+          git commit -m "feat: update JSON file" -a json/version-position.json
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          branch: ${{ github.ref }}
       - name: 'Push to JSON repo'
         uses: crykn/copy_folder_to_another_repo_action@v1.0.6
         env:
