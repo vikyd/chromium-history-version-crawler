@@ -78,8 +78,10 @@ async function main() {
     fs.mkdirSync(Dir.base, { recursive: true })
   }
   if (opts.mode === Modes.all) {
+    console.log('mode: all')
     await mainFirstFull()
   } else {
+    console.log('mode: increment')
     await mainIncreace()
   }
   console.log('all finished --------------------')

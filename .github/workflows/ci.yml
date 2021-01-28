@@ -1,0 +1,35 @@
+name: GitHub Actions Build and Deploy Demo
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      - name: Install
+        run: npm install
+      - name: 'Get position by version'
+        run: node version-position-crawler.js
+      - name: 'Get position list'
+        run: node position-crawler.js
+      - name: 'Generate Finial JSON'
+        run: node ver-pos-os-generator.js
+      - name: 'Push to JSON repo'
+        uses: crykn/copy_folder_to_another_repo_action@v1.0.6
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          source_folder: 'json'
+          destination_repo: 'vikyd/chromium-history-version-position'
+          # root folder
+          # destination_folder: 'test-dir'
+          user_email: 'zwj_fhys@qq.com'
+          user_name: 'vikyd'
+          commit_msg: 'feat: update JSON data'
+        # checkout JSON, modify, push
+        # checkout Vue, modify, push
