@@ -27,7 +27,7 @@ jobs:
         run: |
           git config --local user.email "zwj_fhys@qq.com"
           git config --local user.name "vikyd"
-          git commit -m "feat: update JSON file" -a json/version-position.json
+          git commit -m "feat: update JSON file" json/version-position.json
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
