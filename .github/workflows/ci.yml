@@ -26,8 +26,7 @@ jobs:
         with:
           source_folder: 'json'
           destination_repo: 'vikyd/chromium-history-version-position'
-          # root folder
-          # destination_folder: 'test-dir'
+          destination_folder: 'json'
           user_email: 'zwj_fhys@qq.com'
           user_name: 'vikyd'
           commit_msg: 'feat: update JSON data'
