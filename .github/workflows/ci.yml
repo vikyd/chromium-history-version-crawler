@@ -25,17 +25,10 @@ jobs:
         run: node position-crawler.js
       - name: 'Generate Finial JSON'
         run: node ver-pos-os-generator.js
-      - name: Commit files
-        run: |
-          git config --local user.email "zwj_fhys@qq.com"
-          git config --local user.name "vikyd"
-          git add json/version-position.json
-          git commit -m "feat: update JSON file" json/version-position.json
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          branch: ${{ github.ref }}
+          file_pattern: json/version-position.json
+          commit_message: 'feat: update JSON file'
       - name: 'Push to JSON repo'
         uses: crykn/copy_folder_to_another_repo_action@v1.0.6
         env:
