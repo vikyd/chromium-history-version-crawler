@@ -29,6 +29,8 @@ jobs:
         with:
           file_pattern: json/version-position.json
           commit_message: 'feat: update JSON file'
+          commit_user_name: vikyd
+          commit_user_email: zwj_fhys@qq.com
       - name: 'Push to JSON repo'
         uses: crykn/copy_folder_to_another_repo_action@v1.0.6
         env:
