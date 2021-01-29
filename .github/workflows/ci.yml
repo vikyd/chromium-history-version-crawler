@@ -3,7 +3,6 @@ name: 'Crawl and deploy'
 on:
   schedule:
     - cron: '0 0,4,8,12,16,20 * * *'
-    # - cron: '18 * * * *'
   push:
     paths-ignore:
       - 'json/version-position.json'
@@ -15,8 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        # with:
-        #   persist-credentials: false
       - name: Install
         run: npm install
       - name: 'Get position by version'
@@ -58,10 +55,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v2
         with:
           repository: 'vikyd/download-chromium-history-version-src'
-          # persist-credentials: false
       - name: Install
         run: npm install
       - name: Build
