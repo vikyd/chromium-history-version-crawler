@@ -65,7 +65,7 @@ jobs:
       - name: 'Get not modify from github.io repo'
         run: curl https://raw.githubusercontent.com/vikyd/download-chromium-history-version/master/README.md --output dist/README.md
       - name: 'Push to github.io repo'
-        uses: cpina/github-action-push-to-another-repository@master
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.ACCESS_TOKEN }}
         with:
