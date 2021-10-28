@@ -71,6 +71,7 @@ jobs:
         with:
           source-directory: 'dist'
           destination-repository-name: 'download-chromium-history-version'
+          target-branch: 'master'
           destination-github-username: 'vikyd'
           user-email: 'zwj_fhys@qq.com'
           commit-message: 'feat: update JSON data'
