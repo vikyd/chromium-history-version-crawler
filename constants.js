@@ -1,5 +1,6 @@
 exports.OSList = [
   'Mac',
+  'Mac_Arm',
   'Win_x64',
   'Win',
   'Linux_x64',
