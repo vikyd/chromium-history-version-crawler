@@ -11,12 +11,12 @@ on:
 jobs:
   crawler:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 16 ]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Install
         run: npm install
       - name: 'Get position by version'
@@ -56,14 +56,14 @@ jobs:
   frontend:
     needs: crawler
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 16 ]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           repository: 'vikyd/download-chromium-history-version-src'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Install
         run: npm install
       - name: Build
