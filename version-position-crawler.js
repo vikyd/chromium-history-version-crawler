@@ -199,7 +199,10 @@ async function doIt(beginIdx) {
         done()
         return
       }
-      const pos = bodyObj.chromium_base_position
+      if (bodyObj.error && bodyObj.error.includes('No version data found')) {
+        bodyObj.chromium_main_branch_position = null
+      }
+      const pos = bodyObj.chromium_main_branch_position
       if (!pos) {
         // `null` pos will also be recorded
         // `null` pos is not changed after any times of request

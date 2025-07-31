@@ -2,6 +2,7 @@ exports.OSList = [
   'Mac',
   'Mac_Arm',
   'Win_x64',
+  'Win_Arm64',
   'Win',
   'Linux_x64',
   'Linux',
@@ -14,7 +15,7 @@ exports.DownloadUrl =
 
 exports.VersionUrl = 'https://chromium.googlesource.com/chromium/src/+refs'
 
-exports.VersionPositionUrl = 'https://omahaproxy.appspot.com/deps.json?version='
+exports.VersionPositionUrl = 'https://chromiumdash.appspot.com/fetch_version?version='
 
 exports.PosReplaceExample = 'prefix=Mac'
 exports.PosReplaceStr = 'prefix='

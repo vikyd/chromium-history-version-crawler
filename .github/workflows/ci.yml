@@ -24,7 +24,7 @@ jobs:
         run: node version-position-crawler.js
       - name: 'Get position list'
         run: node position-crawler.js
-      - name: 'Generate Finial JSON'
+      - name: 'Generate Final JSON'
         run: node ver-pos-os-generator.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
